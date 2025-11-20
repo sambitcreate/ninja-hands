@@ -1,0 +1,7 @@
+{
+  "name": "Ninja Hands",
+  "description": "A webcam-based fruit slicing game powered by MediaPipe hand tracking and Gemini AI for witty post-game analysis.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
