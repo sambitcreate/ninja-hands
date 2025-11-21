@@ -14,11 +14,11 @@ interface GameCanvasProps {
 
 // Difficulty Configuration
 const LEVEL_CONFIG: Record<number, { spawnRate: number; gravity: number; bombChance: number; speedMult: number }> = {
-  1: { spawnRate: 60, gravity: 0.2, bombChance: 0.1, speedMult: 1.0 },
-  2: { spawnRate: 50, gravity: 0.25, bombChance: 0.15, speedMult: 1.1 },
-  3: { spawnRate: 40, gravity: 0.3, bombChance: 0.2, speedMult: 1.25 },
-  4: { spawnRate: 30, gravity: 0.35, bombChance: 0.25, speedMult: 1.4 },
-  5: { spawnRate: 20, gravity: 0.4, bombChance: 0.3, speedMult: 1.6 },
+  1: { spawnRate: 80, gravity: 0.2, bombChance: 0.05, speedMult: 0.8 },
+  2: { spawnRate: 50, gravity: 0.25, bombChance: 0.15, speedMult: 1.2 },
+  3: { spawnRate: 30, gravity: 0.3, bombChance: 0.2, speedMult: 1.25 },
+  4: { spawnRate: 30, gravity: 0.35, bombChance: 0.35, speedMult: 1.4 },
+  5: { spawnRate: 20, gravity: 0.4, bombChance: 0.3, speedMult: 2.0 },
 };
 
 const TRAIL_LENGTH = 8;
@@ -53,7 +53,7 @@ const GameCanvas: React.FC<GameCanvasProps> = ({ gameState, setGameState, onScor
   
   const score = useRef(0);
   const currentLevel = useRef(1);
-  const lives = useRef(3);
+  const lives = useRef(5);
   const frameCount = useRef(0);
   const lastHandPos = useRef<Point | null>(null);
   const isVideoReady = useRef(false);
@@ -133,7 +133,7 @@ const GameCanvas: React.FC<GameCanvasProps> = ({ gameState, setGameState, onScor
     floatingTexts.current = [];
     score.current = 0;
     currentLevel.current = 1;
-    lives.current = 3;
+    lives.current = 5;
     handTrail.current = [];
     onScoreUpdate(0);
     onLevelUpdate(1);
@@ -443,7 +443,7 @@ const GameCanvas: React.FC<GameCanvasProps> = ({ gameState, setGameState, onScor
     const livesGap = 15;
     const startX = 30;
     const startY = canvas.height - 30;
-    for(let i = 0; i < 3; i++) {
+    for(let i = 0; i < 5; i++) {
         ctx.beginPath();
         ctx.arc(startX + i * livesGap, startY, 4, 0, Math.PI * 2);
         ctx.fillStyle = i < lives.current ? '#ffffff' : '#333333';
