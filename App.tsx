@@ -120,7 +120,7 @@ function App() {
       {gameState === 'gameover' && (
         <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/80 backdrop-blur-md">
            <div className="max-w-lg w-full p-12 flex flex-col items-center text-center space-y-8 border border-white/10 bg-black rounded-3xl shadow-2xl animate-in slide-in-from-bottom-4 duration-500">
-              
+
               <div className="space-y-1">
                 <p className="text-[11px] uppercase tracking-[0.3em] text-red-500">Sequence Terminated</p>
                 <h2 className="text-6xl font-light">{finalScore}</h2>
@@ -136,7 +136,7 @@ function App() {
                  </p>
               </div>
 
-              <button 
+              <button
                   onClick={() => setGameState('playing')}
                   className="mt-4 px-8 py-3 border border-white/20 rounded-full hover:bg-white hover:text-black transition-colors flex items-center gap-3 group"
               >
@@ -146,6 +146,18 @@ function App() {
            </div>
         </div>
       )}
+
+      {/* Credit */}
+      <div className="absolute bottom-4 right-4 z-10">
+        <a
+          href="https://bitcreate.studio"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[10px] uppercase tracking-[0.2em] text-white/40 hover:text-white/60 transition-colors"
+        >
+          by Sambit Biswas
+        </a>
+      </div>
 
     </div>
   );
